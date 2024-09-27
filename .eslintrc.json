@@ -1,0 +1,135 @@
+{
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx", ".js"]
+    },
+    "import/patterns": ["@/**"]
+  },
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "react", "prettier"],
+  "extends": [
+    "prettier",
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended"
+    // "plugin:@typescript-eslint/recommended-type-checked"
+    // "plugin:@typescript-eslint/stylistic-type-checked"
+  ],
+  "rules": {
+    "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "prettier/prettier": "error",
+    "@next/next/no-img-element": "off",
+    "jsx-a11y/alt-text": "off",
+    "react/display-name": "off",
+    "eslint-disable-next-line": "off",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/exhaustive-deps": ["error"],
+    "react/no-unescaped-entities": "off",
+    "react/jsx-max-props-per-line": [
+      1,
+      {
+        "maximum": 2,
+        "when": "multiline"
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          // "type",
+          "internal",
+          "sibling",
+          "parent",
+          "index"
+        ],
+        "pathGroups": [
+          { "pattern": "@/root/**", "group": "builtin", "position": "after" },
+          { "pattern": "@/root/**", "group": "internal", "position": "after" },
+
+          {
+            "pattern": "@/public/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@/sanity/**",
+            "group": "internal",
+            "position": "after"
+          },
+
+          {
+            "pattern": "@/pages/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@/components/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@/api/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@/contexts/**",
+            "group": "internal",
+            "position": "after"
+          },
+          { "pattern": "@/hooks/**", "group": "internal", "position": "after" },
+          {
+            "pattern": "@/layouts/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@/content/**",
+            "group": "internal",
+            "position": "after"
+          },
+          { "pattern": "@/lib/**", "group": "internal", "position": "after" },
+          {
+            "pattern": "@/theme/**",
+            "group": "internal",
+            "position": "after"
+          },
+          { "pattern": "@/types/**", "group": "internal", "position": "after" },
+
+          {
+            "pattern": "@/models/**",
+            "group": "internal",
+            "position": "after"
+          },
+          { "pattern": "^[./]", "group": "internal", "position": "after" }
+        ],
+        "pathGroupsExcludedImportTypes": ["react, path"],
+        "newlines-between": "always"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js"],
+      "rules": {
+        "@typescript-eslint/no-shadow": ["error"],
+        "no-shadow": "off",
+        "no-undef": "error"
+      },
+      "parserOptions": {
+        "project": ["./tsconfig.json"]
+      }
+    }
+  ]
+}

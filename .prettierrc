@@ -1,0 +1,43 @@
+{
+  "bracketSpacing": true,
+  "printWidth": 80,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "tabWidth": 2,
+  "useTabs": false,
+  "bracketSameLine": false,
+  "plugins": [
+    "prettier-plugin-tailwindcss",
+    "@ianvs/prettier-plugin-sort-imports"
+  ],
+  "importOrder": [
+    "^\\w",
+    "",
+    "^@public/(.*)$",
+    "",
+    "^@pages/(.*)$",
+    "",
+    "^@/components/(.*)$",
+    "",
+    "^@/api/(.*)$",
+    "",
+    "^@/contexts/(.*)$",
+    "",
+    "^@/hooks/(.*)$",
+    "",
+    "^@/layouts/(.*)$",
+    "",
+    "^@/content/(.*)$",
+    "",
+    "^@/lib/(.*)$",
+    "",
+    "^@/theme/(.*)$",
+    "",
+    "^@/types/(.*)$",
+    "",
+    "^@/models/(.*)$",
+    "",
+    "^[./]"
+  ],
+  "organizeImportsSkipDestructiveCodeActions": true
+}
