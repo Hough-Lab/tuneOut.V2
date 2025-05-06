@@ -1,6 +1,9 @@
 // background service worker
 import { Buffer } from 'buffer';
 
+// Import using require to handle both ESM and CJS
+const { Shazam } = require('node-shazam');
+
 let recorder: MediaRecorder | undefined;
 let streamObject: MediaStream | undefined;
 let previousRequest: any;
@@ -8,6 +11,8 @@ let previousRequest: any;
 const error = {
   noAudibleTab: 'Please select an audible tab'
 };
+
+const shazam = new Shazam();
 
 async function toBuffer(stream: Blob): Promise<Buffer> {
   const arrayBuffer = await stream.arrayBuffer();
@@ -20,8 +25,11 @@ async function shazamFromBlob(blob: Blob): Promise<any> {
     const mp3Buffer = await toBuffer(blob);
 
     // Call Shazam's recognize function with the Buffer directly
-    // console.log(recognise);
-    return mp3Buffer;
+    console.log('mp3Buffer', mp3Buffer);
+    const recognise = await shazam.recognise(mp3Buffer); // Assuming Shazam can accept a Buffer
+
+    console.log('recognise', recognise);
+    return recognise;
   } catch (error) {
     console.error('Error recognizing audio:', error);
     throw error;
@@ -49,7 +57,9 @@ async function handleCapture(
         recorder!.ondataavailable = async (e: BlobEvent) => {
           console.log('Data available', e.data);
           const blob = new Blob([e.data], { type: 'audio/mp3' });
+
           const data = await shazamFromBlob(blob);
+          console.log('data', data);
           resolve(data);
         };
       })

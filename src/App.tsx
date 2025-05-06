@@ -1,4 +1,3 @@
-// import  Shazam  from 'node-shazam';
 import { useState } from 'react';
 
 import logo from './logo.svg';
@@ -7,17 +6,41 @@ import './App.css';
 
 import { captureTab } from './background';
 
+// Conditionally import Shazam only in environments where it's supported
+let Shazam: any;
+try {
+  // Use named import for Shazam class
+  const nodeShazam = require('node-shazam');
+  Shazam = nodeShazam.Shazam;
+} catch (error) {
+  console.error('Failed to load Shazam:', error);
+}
+
+// Create shazam instance if available
+const shazam = Shazam ? new Shazam() : null;
+
 function App() {
   const [count, setCount] = useState(0);
+  const [error, setError] = useState<string | null>(null);
 
   const handleCaptureTab = async () => {
+    if (!shazam) {
+      setError('Shazam functionality is not available in this environment');
+      return;
+    }
+
     const tabId = 0;
     try {
       const data = await captureTab(tabId);
-      console.log(data);
-      // const recognise = await Shazam.recognise(data); // Assuming Shazam can accept a Buffer
+      console.log('data is', data);
+      const recognise = await shazam.recognise(data);
+      console.log('recognise', recognise);
     } catch (err) {
       console.error(err);
+      setError(
+        'Error during recognition: ' +
+          (err instanceof Error ? err.message : String(err))
+      );
     }
   };
 
@@ -25,6 +48,7 @@ function App() {
     <div className="App" style={{ width: '200px' }}>
       <header className="App-header">
         <button onClick={handleCaptureTab}>Capture Tab</button>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Vite + React!</p>
         <p>
