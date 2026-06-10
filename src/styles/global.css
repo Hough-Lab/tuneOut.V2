@@ -101,9 +101,9 @@ body {
 .service-links { display: inline-flex; gap: 4px; }
 .service-links a {
   display: inline-flex; padding: 6px; border-radius: 8px;
-  color: var(--text-dim); transition: color 0.15s, background 0.15s;
+  opacity: 0.85; transition: opacity 0.15s, background 0.15s;
 }
-.service-links a:hover { color: var(--text); background: var(--glass-strong); }
+.service-links a:hover { opacity: 1; background: var(--glass-strong); }
 
 /* History */
 .history { flex: 1; min-height: 0; display: flex; flex-direction: column; padding-bottom: 12px; }
