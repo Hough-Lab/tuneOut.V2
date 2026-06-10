@@ -61,35 +61,25 @@ body {
   backdrop-filter: blur(14px);
 }
 
-.listen-button {
-  appearance: none;
-  border: 1px solid var(--glass-border);
-  border-radius: 999px;
-  padding: 12px 28px;
-  margin: 4px auto 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font: inherit;
-  font-weight: 600;
-  font-size: 15px;
-  color: var(--text);
-  background: var(--glass-strong);
-  backdrop-filter: blur(14px);
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.3s ease;
-}
-.listen-button:hover { transform: scale(1.04); box-shadow: 0 0 24px var(--bg-glow-1); }
-.listen-button:disabled { cursor: default; transform: none; }
+.stage.clickable { cursor: pointer; }
+.stage.clickable:hover > div { transform: scale(1.04); }
+.stage > div { transition: transform 0.25s ease; }
 
-.listen-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--gradient);
+.orb-label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-shadow: 0 1px 10px rgba(10, 10, 20, 0.9), 0 0 24px rgba(10, 10, 20, 0.7);
 }
-.listening .listen-dot { animation: pulse 1.1s ease-in-out infinite; background: var(--danger); }
-@keyframes pulse { 50% { opacity: 0.25; transform: scale(0.7); } }
+.orb-label.listening { animation: labelPulse 1.6s ease-in-out infinite; }
+@keyframes labelPulse { 50% { opacity: 0.45; } }
 
 .status-text { text-align: center; color: var(--text-dim); font-size: 13px; min-height: 18px; margin: 0 0 6px; }
 .status-text.error { color: var(--danger); }

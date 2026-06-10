@@ -8,7 +8,6 @@ import {
 import { startCapture, type CaptureSession } from './lib/audio/capture'
 import { getHistory, addEntry, removeEntry, clearHistory } from './lib/history'
 import Orb from './components/Orb'
-import ListenButton from './components/ListenButton'
 import MatchCard from './components/MatchCard'
 import HistoryList from './components/HistoryList'
 
@@ -102,21 +101,29 @@ export default function App() {
         <span className="logo">tuneOut</span>
       </header>
 
-      <div className="stage">
+      <div
+        className={`stage${phase !== 'listening' ? ' clickable' : ''}`}
+        onClick={phase !== 'listening' ? listen : undefined}
+        role="button"
+        aria-label="Identify the music playing in this tab"
+      >
         <Orb phase={phase} analyser={analyser} />
+        <span className={`orb-label${phase === 'listening' ? ' listening' : ''}`}>
+          {phase === 'idle' && 'tap to identify'}
+          {phase === 'listening' && `listening · ${elapsed.toFixed(0)}s`}
+          {(phase === 'no-match' || phase === 'error') && 'tap to try again'}
+          {phase === 'match' && 'tap to identify'}
+        </span>
       </div>
 
       {phase === 'match' && track ? (
         <MatchCard track={track} onListenAgain={listen} />
       ) : (
-        <>
-          <ListenButton phase={phase === 'match' ? 'idle' : phase} elapsed={elapsed} onClick={listen} />
-          <p className={`status-text${phase === 'error' ? ' error' : ''}`}>
-            {phase === 'error' && (errorMessage || 'Something went wrong')}
-            {phase === 'no-match' && 'No match found — is music playing in this tab?'}
-            {phase === 'listening' && 'Identifying tab audio…'}
-          </p>
-        </>
+        <p className={`status-text${phase === 'error' ? ' error' : ''}`}>
+          {phase === 'error' && (errorMessage || 'Something went wrong')}
+          {phase === 'no-match' && 'No match found — is music playing in this tab?'}
+          {phase === 'listening' && 'Identifying tab audio…'}
+        </p>
       )}
 
       <HistoryList
