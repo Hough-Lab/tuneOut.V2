@@ -96,3 +96,51 @@ body {
 
 .fade-in { animation: fadeIn 0.35s ease both; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } }
+
+/* Match card */
+.match-card { display: flex; gap: 14px; padding: 14px; margin-bottom: 12px; align-items: center; }
+.match-art { width: 88px; height: 88px; border-radius: 12px; object-fit: cover; display: block; }
+.match-art-placeholder { background: var(--gradient); opacity: 0.5; }
+.match-meta { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.match-title { font-size: 16px; line-height: 1.25; }
+.match-artist { color: var(--text-dim); font-size: 14px; }
+.match-album { color: var(--text-dim); font-size: 12px; }
+.match-actions { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+
+/* Service links */
+.service-links { display: inline-flex; gap: 4px; }
+.service-links a {
+  display: inline-flex; padding: 6px; border-radius: 8px;
+  color: var(--text-dim); transition: color 0.15s, background 0.15s;
+}
+.service-links a:hover { color: var(--text); background: var(--glass-strong); }
+
+/* History */
+.history { flex: 1; min-height: 0; display: flex; flex-direction: column; padding-bottom: 12px; }
+.history-header { display: flex; justify-content: space-between; align-items: baseline; }
+.history-header h2 {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--text-dim); margin: 6px 0;
+}
+.history-list {
+  list-style: none; margin: 0; padding: 0 2px 4px;
+  overflow-y: auto; display: flex; flex-direction: column; gap: 8px;
+}
+.history-list::-webkit-scrollbar { width: 4px; }
+.history-list::-webkit-scrollbar-thumb { background: var(--glass-border); border-radius: 2px; }
+.history-row { display: flex; align-items: center; gap: 10px; padding: 8px; }
+.history-art { width: 40px; height: 40px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
+.history-meta { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.history-title { font-size: 13px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.history-artist { font-size: 12px; color: var(--text-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.history-remove { opacity: 0; }
+.history-row:hover .history-remove { opacity: 1; }
+.history-empty { color: var(--text-dim); font-size: 13px; text-align: center; margin-top: 18px; }
+
+/* Text buttons */
+.text-button {
+  appearance: none; background: none; border: none; padding: 4px 6px;
+  font: inherit; font-size: 12px; color: var(--text-dim); cursor: pointer; border-radius: 6px;
+}
+.text-button:hover { color: var(--text); background: var(--glass-strong); }
+.text-button.danger { color: var(--danger); }
