@@ -38,6 +38,15 @@ export default function App() {
 
   useEffect(() => () => sessionRef.current?.stop(), [])
 
+  // Start identifying as soon as the popup opens (ref guards dev double-mount).
+  const autoStarted = useRef(false)
+  useEffect(() => {
+    if (autoStarted.current) return
+    autoStarted.current = true
+    void listen()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   async function listen() {
     setPhase('listening')
     setTrack(null)
