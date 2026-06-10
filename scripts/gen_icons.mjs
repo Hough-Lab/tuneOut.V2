@@ -14,17 +14,17 @@ const svg = `
 <svg width="128" height="128" viewBox="0 0 131 131" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#141432"/>
-      <stop offset="1" stop-color="#0a0a14"/>
+      <stop offset="0" stop-color="#16201a"/>
+      <stop offset="1" stop-color="#0a100d"/>
     </linearGradient>
     <linearGradient id="wave" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#8b5cf6"/>
-      <stop offset="1" stop-color="#22d3ee"/>
+      <stop offset="0" stop-color="#a22c29"/>
+      <stop offset="1" stop-color="#d6d5c9"/>
     </linearGradient>
   </defs>
   <rect x="2" y="2" width="127" height="127" rx="30" fill="url(#bg)"/>
-  <circle cx="65.5" cy="65.5" r="46" fill="none" stroke="#8b5cf6" stroke-opacity="0.35" stroke-width="7"/>
-  <path d="${wavePath}" fill="none" stroke="#22d3ee" stroke-opacity="0.25" stroke-width="13"
+  <circle cx="65.5" cy="65.5" r="46" fill="none" stroke="#902923" stroke-opacity="0.45" stroke-width="7"/>
+  <path d="${wavePath}" fill="none" stroke="#b9baa3" stroke-opacity="0.22" stroke-width="13"
         stroke-linecap="round" stroke-linejoin="round"/>
   <path d="${wavePath}" fill="none" stroke="url(#wave)" stroke-width="6.5"
         stroke-linecap="round" stroke-linejoin="round"/>

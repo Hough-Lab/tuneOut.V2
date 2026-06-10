@@ -1,16 +1,19 @@
 :root {
-  --bg: #0a0a14;
-  --bg-glow-1: rgba(139, 92, 246, 0.14);
-  --bg-glow-2: rgba(34, 211, 238, 0.1);
-  --glass: rgba(255, 255, 255, 0.05);
-  --glass-strong: rgba(255, 255, 255, 0.08);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --text: #f2f2fa;
-  --text-dim: #8e8ea8;
-  --violet: #8b5cf6;
-  --cyan: #22d3ee;
-  --gradient: linear-gradient(135deg, var(--violet), var(--cyan));
-  --danger: #f87171;
+  /* Palette: Onyx / Ash Grey / Bone / Brown Red / Chestnut */
+  --bg: #0a100d;
+  --ash: #b9baa3;
+  --bone: #d6d5c9;
+  --brown-red: #a22c29;
+  --chestnut: #902923;
+  --bg-glow-1: rgba(162, 44, 41, 0.16);
+  --bg-glow-2: rgba(185, 186, 163, 0.07);
+  --glass: rgba(214, 213, 201, 0.05);
+  --glass-strong: rgba(214, 213, 201, 0.09);
+  --glass-border: rgba(214, 213, 201, 0.12);
+  --text: var(--bone);
+  --text-dim: var(--ash);
+  --gradient: linear-gradient(135deg, var(--brown-red), var(--chestnut));
+  --danger: #c4534e; /* brown red lifted for small-text legibility on onyx */
   --radius: 16px;
 }
 
@@ -39,7 +42,7 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.02em;
-  background: var(--gradient);
+  background: linear-gradient(135deg, var(--bone), var(--ash));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

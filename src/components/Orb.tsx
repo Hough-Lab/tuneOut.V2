@@ -78,11 +78,12 @@ varying float vDisplacement;
 varying vec3 vNormal;
 varying vec3 vViewDir;
 void main() {
-  vec3 violet = vec3(0.545, 0.361, 0.965);
-  vec3 cyan = vec3(0.133, 0.827, 0.933);
+  vec3 brownRed = vec3(0.635, 0.173, 0.161); // #a22c29
+  vec3 ashGrey = vec3(0.725, 0.729, 0.639);  // #b9baa3
+  vec3 bone = vec3(0.839, 0.835, 0.788);     // #d6d5c9
   float fresnel = pow(1.0 - max(dot(vNormal, vViewDir), 0.0), 2.0);
-  vec3 color = mix(violet, cyan, vDisplacement * 0.5 + 0.5);
-  color += fresnel * 0.6 + uBurst * 0.5;
+  vec3 color = mix(brownRed, ashGrey, vDisplacement * 0.5 + 0.5);
+  color += bone * fresnel * 0.55 + uBurst * 0.5;
   gl_FragColor = vec4(color, 0.92);
 }
 `
