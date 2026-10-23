@@ -1,0 +1,26 @@
+{
+ "sampleRateHz": 16000,
+ "numberSamples": 48000,
+ "bands": {
+  "0": [
+   [
+    46,
+    7000,
+    2458
+   ],
+   [
+    350,
+    6500,
+    2500
+   ]
+  ],
+  "2": [
+   [
+    100,
+    7100,
+    16384
+   ]
+  ]
+ },
+ "uri": "data:audio/vnd.shazam.sig;base64,gCX+yrTTEA8wAAAAAJwRlAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAIDKAAAAAHwAAAAAQDAAAABAAANgDwAAAC5YG5oJ/14BAAAAZBnECQBCAANgBQAAAGS8GwBAAAAA"
+}
