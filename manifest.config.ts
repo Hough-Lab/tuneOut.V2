@@ -9,5 +9,10 @@ export default defineManifest({
   background: { service_worker: 'src/background.ts', type: 'module' },
   permissions: ['tabCapture', 'storage', 'activeTab'],
   host_permissions: ['https://amp.shazam.com/*'],
-  icons: { '16': 'icons/icon16.png', '48': 'icons/icon48.png', '128': 'icons/icon128.png' },
+  icons: {
+    '16': 'icons/icon16.png',
+    '32': 'icons/icon32.png',
+    '48': 'icons/icon48.png',
+    '128': 'icons/icon128.png',
+  },
 })

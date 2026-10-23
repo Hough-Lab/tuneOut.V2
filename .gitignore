@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 scripts/_ref/
+
+# brainstorming mockups
+.superpowers/
