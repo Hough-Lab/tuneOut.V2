@@ -80,12 +80,12 @@ All open in a new tab. Search APIs were considered and rejected: they require se
   "manifest_version": 3,
   "action": { "default_popup": "index.html" },
   "background": { "service_worker": "background.ts (built)" },
-  "permissions": ["tabCapture", "storage"],
+  "permissions": ["tabCapture", "activeTab"],
   "host_permissions": ["https://amp.shazam.com/*"]
 }
 ```
 
-(`storage` retained for potential future settings; history itself uses localStorage per requirement.)
+(History uses page `localStorage`, which needs no `storage` permission; `activeTab` lets the popup read the matched tab's title and URL.)
 
 ## Components
 
