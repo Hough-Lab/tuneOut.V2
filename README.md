@@ -31,4 +31,4 @@ into `scripts/_ref/`). `scripts/gen_icons.mjs` regenerates the icon set.
 
 ## Manifest
 
-V3. Permissions: `tabCapture`, `storage`, `activeTab`; host: `amp.shazam.com`.
+V3. Permissions: `tabCapture`, `activeTab`; host: `amp.shazam.com`.
